@@ -1,11 +1,11 @@
 # GodVille Auto-Encourager
-Simple [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey) script for [GodVille](https://godvillegame.com/) to check for health of Hero and encourage if value is low. 
+Simple [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey) script for [GodVille](https://godvillegame.com/) to check for health of Hero and encourage if value is low.
 
 ## Install
 
-You will need [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey) for Firefox or *who-knows-what* for other browsers first. 
+You will need [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey) for Firefox or *who-knows-what* for other browsers first.
 
-Then click [here](https://github.com/hovancik/godville-auto-encourager/raw/master/godville-auto-encourager.js) to install script. 
+Then click [here](https://github.com/hovancik/godville-auto-encourager/raw/master/godville-auto-encourager.user.js) to install script. 
 
 ## License
 
