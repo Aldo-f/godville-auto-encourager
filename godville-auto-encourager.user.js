@@ -8,10 +8,12 @@
 // ==/UserScript==
 
 // settings
-var minHealth = 30;
+var minHealth = 40;
 var pauseTime = 15000;
+var DEBUG = true;
 
 function checkHealth() {
+  if (DEBUG) console.log("I checked the hero's health");
   var healthDiv = document.getElementById("hk_health");
   var healthVal = healthDiv.getElementsByClassName("l_val")[0].innerHTML;
   var health = healthVal.split(" / ")[0];
@@ -23,30 +25,32 @@ function checkHealth() {
 }
 
 function encourage() {
-  console.log("Trying to Encourage...");
+  if (DEBUG) console.log("Trying to Encourage...");
   document.getElementsByClassName("no_link div_link enc_link")[0].click();
 }
 
 var encourager = setInterval(checkHealth, pauseTime);
 
 var pauseEncourager = function() {
-  console.log("Pausing...");
+  if (DEBUG) console.log("Pausing...");
   clearInterval(encourager);
   encourager = 0;
 };
 
 var resumeEncourager = function() {
   pauseEncourager();
-  console.log("Resuming...");
+  if (DEBUG) console.log("Resuming...");
   encourager = setInterval(checkHealth, 15000);
 };
 
-var divx = document.createElement("div");
-divx.innerHTML =
-  '<div class="block" id="auto-encourage"><div class="block_h"><span class="l_slot"><span class="b_handle m_hover" style="display: none;" title="Drag to move this block">●</span></span><h2 class="block_title">Auto-Encourager</h2><span class="r_slot"><span class="h_min m_hover" style="display: none;">↑</span></span></div><div class="block_content"><p>I will check for health every 15 seconds and if health is less then ' +
+var infoDiv = document.createElement("div");
+infoDiv.innerHTML =
+  '<div class="block" id="auto-encourage"><div class="block_h"><span class="l_slot"><span class="b_handle m_hover" style="display: none;" title="Drag to move this block">●</span></span><h2 class="block_title">Auto-Encourager</h2><span class="r_slot"><span class="h_min m_hover" style="display: none;">↑</span></span></div><div class="block_content"><p>I will check for health every ' +
+  pauseTime / 1000 +
+  " seconds and if health is less then " +
   minHealth +
   '% I will try to encourage your superhero.</p><div><a style="display: inline;" class="no_link enc_link div_link" id="resume" title="Resume">Resume</a><a style="display: inline;" class="no_link pun_link div_link" id="pause" title="Pause">Pause</a></div></div><div class="line"/></div></div>';
-document.getElementById("right_block").appendChild(divx);
+document.getElementById("right_block").appendChild(infoDiv);
 
 document
   .getElementById("pause")
